@@ -1,0 +1,7 @@
+{
+  "base_url": "https://41438038.servicio-online.net",
+  "service": "academia_app",
+  "admin_service": "academy_app_admin",
+  "admin_token": "39523f0eec30b3d722f892267258c6c0",
+  "default_roleid": 5
+}
