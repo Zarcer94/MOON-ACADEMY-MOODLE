@@ -1,0 +1,376 @@
+/* =========================================================
+   Moon Academy – Estilo base (QSS)
+   ---------------------------------------------------------
+   Qt Style Sheets (QSS) funciona parecido a CSS:
+   - Cada bloque aplica a widgets según su tipo (QWidget, QLabel…)
+   - o por objectName usando #Id (ej: QPushButton#LoginButton)
+   - Si una regla aparece más abajo y coincide, normalmente “pisa”
+     (sobrescribe) lo anterior.
+   ========================================================= */
+
+
+/* =========================
+   VARIABLES DE COLOR (Qt/QSS)
+   =========================
+   @define-color permite definir colores reutilizables.
+   Nota: no estás usando estas variables en todas partes todavía;
+   muchas reglas siguen usando hex directamente.
+*/
+
+	@define-color brandBlue #2F4EA8;        /* Azul corporativo principal */
+	@define-color brandBlueHover #3F63C6;   /* Azul para hover */
+	@define-color bgBlue #223A7A;           /* Azul de fondo principal */
+
+
+/* =========================
+   VENTANA PRINCIPAL
+   =========================
+   Aplica solo a QMainWindow (la ventana raíz).
+   - background: color de fondo principal
+   - color: color de texto por defecto en esa ventana
+*/
+	
+	QMainWindow {
+		background: #223A7A;
+		color: #FFFFFF;
+	}
+
+
+/* =========================
+   ESTILO GLOBAL PARA TODOS LOS WIDGETS
+   =========================
+   Aplica a TODOS los widgets (QWidget es la base de casi todo).
+   Ojo: esto fuerza fondo azul a todo, así que si quieres tarjetas
+   blancas, inputs, tablas, etc., necesitas sobrescribirlo luego.
+*/
+
+	QWidget {
+		background: #223A7A;  /* fondo azul por defecto */
+		color: #FFFFFF;       /* texto blanco por defecto */
+		font-size: 14px;      /* tamaño base */
+	}
+
+/* =========================
+   TEXTOS (LABELS)
+   =========================
+   QLabel por defecto hereda el background azul de QWidget.
+   Aquí se fuerza "transparent" para que no salgan “cajas azules”
+   detrás del texto cuando el label esté encima de un panel/card.
+*/
+
+	QLabel {
+		background: transparent; /* sin fondo */
+		color: #FFFFFF;          /* texto blanco */
+		font-size: 16px;         /* texto un poco más grande */
+		font-weight: 800;        /* texto fuerte */
+	}
+
+
+/* =========================
+   INPUTS (campos de entrada)
+   =========================
+   Estilo común para:
+   - QLineEdit: texto normal
+   - QSpinBox / QDoubleSpinBox: números
+   Se les da aspecto “card/input” claro.
+*/
+
+	QLineEdit, QSpinBox, QDoubleSpinBox {
+		background: rgba(255,255,255,0.96); /* casi blanco, ligeramente translúcido */
+		border: none;                       /* sin borde (aspecto limpio) */
+		padding: 12px;                      /* espacio interior */
+		border-radius: 12px;                /* redondeo */
+		color: #0f1115;                     /* texto oscuro para contraste */
+		font-size: 16px;                    /* más grande */
+		font-weight: 800;                   /* fuerte */
+	}
+
+/* Placeholder: el texto “gris” cuando el input está vacío */
+
+	QLineEdit::placeholder {
+		color: #6b7280;   /* gris */
+		font-weight: 700; /* un poco menos fuerte que el texto real */
+	}
+
+
+/* =========================
+   BOTONES
+   =========================
+*/
+	
+	QPushButton {
+		background: #2F4EA8;   /* azul base */
+		color: #FFFFFF;        /* texto blanco */
+		padding: 12px 18px;    /* alto/ancho del botón */
+		border-radius: 14px;   /* redondeo */
+		font-size: 14px;
+		font-weight: 900;      /* muy fuerte */
+	}
+		
+	QPushButton:hover {
+		background: #3F63C6;
+	}
+  
+	/* ---------------------------------------------------------
+	BOTÓN VERDE 
+	---------------------------------------------------------
+	Aplica al botón con objectName "GreenButton".
+	*/
+	
+		QPushButton#GreenButton {
+			background: #2FBF72;   /* VERDE */
+			color: #FFFFFF;
+
+			font-size: 16px;
+			font-weight: 900;
+		}
+
+		QPushButton#GreenButton:hover {
+			background: #4CD38C;
+		}
+
+		QPushButton#GreenButton:pressed {
+			background: #26A862;
+		}
+	
+	/* ---------------------------------------------------------
+	BOTÓN ROJO 
+	---------------------------------------------------------
+	Aplica al botón con objectName "RedButton".
+	*/
+	
+		QPushButton#RedButton {
+			background: #D64545;
+			color: #FFFFFF;
+			font-weight: 900;
+		}
+
+		QPushButton#RedButton:hover {
+			background: #E56A6A;
+		}
+	
+	/* ---------------------------------------------------------
+	BOTÓN NARANJA
+	---------------------------------------------------------
+	Aplica al botón con objectName "OrangeButton".
+	*/
+	
+		QPushButton#OrangeButton {
+			background: #E67E22;
+			color: #FFFFFF;
+			font-weight: 900;
+		}
+
+		QPushButton#OrangeButton:hover {
+			background: #D35400;
+		}
+		
+
+/* =========================
+   LOGIN (pantalla de login)
+   =========================
+   Esto aplica SOLO a un QWidget cuyo objectName sea "LoginScreen".
+   Útil para aislar estilos de la pantalla de login.
+*/
+	
+	QWidget#LoginScreen {
+		background: #223A7A; /* mantiene el fondo principal */
+	}
+
+
+/* =========================
+   TARJETAS / PANELES (Cards)
+   =========================
+   QFrame#Card: contenedores con aspecto tarjeta.
+   - semi-transparente blanco sobre el fondo azul
+*/
+
+	QFrame#Card {
+		background: rgba(255,255,255,0.18);
+		border-radius: 18px;
+	}
+
+/* =========================
+   TABLAS (GENÉRICAS)
+   =========================
+   Estilo para QTableWidget en general.
+   (Luego hay un estilo específico para StudentsTable,
+   que la hace transparente y con texto blanco.)
+*/
+	
+	QTableWidget {
+		background: rgba(255,255,255,0.96); /* fondo casi blanco */
+		color: #0f1115;                      /* texto oscuro */
+		border-radius: 12px;
+		font-size: 14px;
+	}
+
+/* Cabeceras de tablas (QHeaderView) */
+	
+	QHeaderView::section {
+		background: #2F4EA8; /* azul marca */
+		color: #FFFFFF;
+		font-size: 14px;
+		font-weight: 900;
+		padding: 8px;
+		border: none;
+	}
+
+/* =========================
+   POPUPS (QMessageBox)
+   =========================
+   Para que los popups tengan fondo claro y texto negro,
+   independientemente del tema azul global.
+*/
+
+	QMessageBox {
+		background: #F5F7FB; /* fondo claro */
+	}
+
+/* Labels dentro del QMessageBox: texto negro */
+
+	QMessageBox QLabel {
+		background: transparent;
+		color: #000000;
+		font-size: 15px;
+		font-weight: 900;
+	}
+
+/* QTextEdit dentro del QMessageBox (si aparece área de texto) */
+
+	QMessageBox QTextEdit {
+		background: #FFFFFF;
+		color: #000000;
+		border: 1px solid #C7CDE3;
+		border-radius: 10px;
+	}
+
+/* Botones dentro del QMessageBox */
+
+	QMessageBox QPushButton {
+		background: #2F4EA8;
+		color: #FFFFFF;
+		font-size: 15px;
+		font-weight: 900;
+		padding: 10px 20px;
+		border-radius: 12px;
+	}
+
+	QMessageBox QPushButton:hover {
+		background: #3F63C6;
+	}
+
+/* =========================
+   HOME CARD (opcional)
+   =========================
+   Variante de tarjeta para Home, un poco diferente.
+*/
+	
+	QFrame#HomeCard {
+	  background: rgba(255,255,255,0.16);
+	  border-radius: 22px;
+	}
+
+/* =========================
+   SELECTOR DE CURSO (CourseCombo)
+   =========================
+   Solo ajusta una cosa:
+   - más espacio a la derecha para que la flecha no pise el texto
+   Todo lo demás lo hereda del QComboBox global (definido abajo).
+*/
+	
+	QComboBox#CourseCombo {
+		padding-right: 40px;
+	}
+
+/* =========================
+   TABLA DE ALUMNOS (StudentsTable)
+   =========================
+   Esta tabla está pensada para usarse sobre fondo azul,
+   por eso:
+   - fondo transparente
+   - texto blanco
+   - selección clara pero con texto blanco (no desaparece)
+*/
+	
+	QTableWidget#StudentsTable {
+		background: transparent;
+		gridline-color: rgba(255, 255, 255, 0.15);        /* líneas de cuadrícula suaves */
+		selection-background-color: rgba(255, 255, 255, 0.18); /* selección translúcida */
+		selection-color: #ffffff;                          /* texto blanco al seleccionar */
+	}
+
+	/* Estilo de cada celda */
+	QTableWidget#StudentsTable::item {
+		padding: 10px;
+		font-size: 16px;
+		font-weight: 700;
+		color: #ffffff;
+		background: transparent; /* evita “parches” al seleccionar/hover */
+	}
+
+	/* Hover en celdas */
+	QTableWidget#StudentsTable::item:hover {
+		background: rgba(255, 255, 255, 0.10);
+		color: #ffffff;
+	}
+
+	/* Celda seleccionada */
+	QTableWidget#StudentsTable::item:selected {
+		background: rgba(255, 255, 255, 0.22);
+		color: #ffffff;
+		border: none;
+	}
+
+	/* Quita el borde punteado de “focus” */
+	QTableWidget#StudentsTable::item:focus {
+		outline: none;
+		border: none;
+	}
+
+	/* Cabeceras dentro de StudentsTable (solo ajusta padding) */
+	QTableWidget#StudentsTable QHeaderView::section {
+		padding: 10px;
+	}
+
+/* =========================
+   QComboBox GLOBAL (para todos los combos)
+   =========================
+   Define cómo se ven los desplegables:
+   - fondo claro
+   - borde fino
+   - SIN redondeo (border-radius 0)
+   - padding-right para dejar sitio a la flecha
+*/
+	
+	QComboBox {
+		background: rgba(255,255,255,0.96);
+		border: 1px solid rgba(0,0,0,0.18);
+		border-radius: 0px;
+
+		padding: 10px;
+		padding-right: 38px; /* espacio reservado para el área de flecha */
+
+		color: #0f1115;
+		font-size: 16px;
+		font-weight: 800;
+	}
+
+/* Área del botón desplegable (lado derecho) */
+
+	QComboBox::drop-down {
+		subcontrol-origin: padding;
+		subcontrol-position: top right;
+		width: 34px;
+
+		border-left: 1px solid rgba(0,0,0,0.18);
+		border-radius: 0px;
+		background: transparent;
+	}
+
+/* Flecha (se deja la nativa de Qt, solo ajustas tamaño) */
+	
+	QComboBox::down-arrow {
+		width: 12px;
+		height: 12px;
+	}
