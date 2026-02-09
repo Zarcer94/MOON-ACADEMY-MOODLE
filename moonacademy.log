@@ -1,0 +1,28 @@
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[ERROR] Traceback (most recent call last): |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\screens\login_screen.py", line 162, in do_login |     info = cliente.site_info() | AttributeError: 'MoodleClient' object has no attribute 'site_info' | 
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[ERROR] Traceback (most recent call last): |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\screens\login_screen.py", line 162, in do_login |     info = cliente.site_info() | AttributeError: 'MoodleClient' object has no attribute 'site_info' | 
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[ERROR] Traceback (most recent call last): |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\screens\login_screen.py", line 158, in do_login |     token = login_get_token(base_url, usuario, password, service) |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\moodle_client.py", line 44, in login_get_token |     return cliente.login_get_token(username, password, service) |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\moodle_client.py", line 198, in login_get_token |     self._lanza_error_moodle(data) |   File "C:\Users\aleja\Desktop\MOON ACADEMY\app\moodle_client.py", line 101, in _lanza_error_moodle |     raise RuntimeError(f"{codigo}: {mensaje}\n{debug}") | RuntimeError: invalidlogin:  |  | 
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
+[LOGIN] base_url=https://41438038.servicio-online.net service=academia_app username=profe1
+[LOGIN] token obtenido OK
